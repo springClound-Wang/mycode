@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>错误页面</title>
+</head>
+<body>
+    <h1><a href="/login/toLoginPage">登陆</a></h1>
+    <h1>错误提示：<span th:value="${error}"></span></h1>
+</body>
+</html>

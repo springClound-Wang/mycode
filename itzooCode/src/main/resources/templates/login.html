@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+</head>
+<body>
+    <form id="loginFrm" onsubmit="return false">
+       <p><label for="name">用户名</label> <input name="name" id="name"/></p>
+       <p><label for="pwd">密码</label><input type="password" name="pwd" id="pwd"/></p>
+        <button id="doLogin">登陆</button>
+    </form>
+<button onclick="location.href='/login/localGithub'">github登陆</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    $("#doLogin").click(function () {
+        console.log(1)
+        var phone=$("#name").val();
+        var pwd=$("#pwd").val();
+
+        var obj={"phone":phone,"pwd":pwd};
+        $.post("/login/doLogin",obj,function (data) {
+            console.log(data)
+            if(data=="登陆成功"){
+                location.href="/index";
+            }else{
+                alert(data);
+            }
+        });
+    });
+
+</script>
+</html>
